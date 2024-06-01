@@ -5,3 +5,6 @@
 2. `nest -v`
 3. `nest`
 4. `nest new .` or `nest new <project_name>`
+5. first commit  - `nest clean`
+6. `nest generate module users`
+7. `nest g co users/controllers/users`

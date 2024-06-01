@@ -1,0 +1,26 @@
+@baseUrl = http://localhost:3001
+
+### Request 0 : CheckHealth
+GET {{baseUrl}}/users/health
+
+### Request 1 : GetUsers
+GET {{baseUrl}}/users
+
+### Request 1.1 : GetUsers
+GET {{baseUrl}}/users?sortBy=asc
+
+### Request 1.2 : GetUser
+GET {{baseUrl}}/users/1
+
+
+### Request 2 : GetPosts
+GET {{baseUrl}}/users/posts
+
+### Request 3 : CreateUser
+POST {{baseUrl}}/users/
+content-type: application/json
+
+{
+    "name": "Jhon",
+    "email": "jack.jhon@gmail.com"
+}
