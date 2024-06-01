@@ -1,5 +1,8 @@
-import { Body, Controller, Get, Param, Post, Query, Req, Res } from '@nestjs/common';
-import { Request, Response } from 'express';
+import { 
+    Body, Controller, Get, 
+    Param, ParseBoolPipe, ParseIntPipe, Post, Query,
+    UsePipes, ValidationPipe 
+} from '@nestjs/common';
 import { CreateUserDto } from 'src/users/dtos/CreateUser.dto';
 
 @Controller('users')
@@ -17,7 +20,8 @@ export class UsersController {
     // Another effective way of POST and accessing body
     // Now it is not validating by default.
     // I will implement the validation later.
-    @Post()
+    @Post('create')
+    @UsePipes(new ValidationPipe())
     createUser(@Body() userData: CreateUserDto){
         console.log(userData)
         return{}
@@ -31,13 +35,13 @@ export class UsersController {
     }
 
     @Get(':id')
-    getUser(@Param('id') id: string) {
+    getUser(@Param('id', ParseIntPipe) id: number) {
         return [{ id:id ,username: 'Sankar', email: 'sankarbiswas07@gmail.com' }]
     }
 
-    @Get('')
-    getUsers(@Query('sortBy') sortBy: string) {
-        console.log("sortBy : ", sortBy)
+    @Get()
+    getUsers(@Query('sortDesc', ParseBoolPipe) sortDesc: boolean) {
+        console.log("sortDesc : ", sortDesc)
         return [{ username: 'Sankar', email: 'sankarbiswas07@gmail.com' }]
     }
 

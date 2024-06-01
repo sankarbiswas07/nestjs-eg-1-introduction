@@ -8,3 +8,6 @@
 5. first commit  - `nest clean`
 6. `nest generate module users`
 7. `nest g co users/controllers/users`
+8. learnt about basic request overview.
+9. install `npm i --save class-validator class-transformer` | see `https://docs.nestjs.com/techniques/validation`
+10. 

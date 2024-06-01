@@ -7,7 +7,7 @@ GET {{baseUrl}}/users/health
 GET {{baseUrl}}/users
 
 ### Request 1.1 : GetUsers
-GET {{baseUrl}}/users?sortBy=asc
+GET {{baseUrl}}/users?sortDesc=true
 
 ### Request 1.2 : GetUser
 GET {{baseUrl}}/users/1
@@ -16,8 +16,17 @@ GET {{baseUrl}}/users/1
 ### Request 2 : GetPosts
 GET {{baseUrl}}/users/posts
 
-### Request 3 : CreateUser
-POST {{baseUrl}}/users/
+### Request 3 : Error: CreateUser
+POST {{baseUrl}}/users/create
+content-type: application/json
+
+{
+    # "name": "Jhon",
+    "email": "jack.jhon@gmail.com"
+}
+
+### Request 3.1 : CreateUser
+POST {{baseUrl}}/users/create
 content-type: application/json
 
 {
