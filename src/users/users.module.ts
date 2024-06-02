@@ -10,6 +10,12 @@ import { ExampleMiddleware } from './middlewares/example/example.middleware';
 
 export class UsersModule implements NestModule{
   configure(consumer: MiddlewareConsumer) {
+    /**
+     * we can pass the route name liek the eg. shown.
+     * we can also set specific routes if we pass forRoutes({path:'users', methode: RequestMethod.GET})
+     * we can also pass controller forRoutes(UsersController)
+     * more details : https://docs.nestjs.com/middleware
+     */
     consumer.apply(ExampleMiddleware).forRoutes('users')
   }
 }
