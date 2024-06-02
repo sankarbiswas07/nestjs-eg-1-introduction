@@ -11,3 +11,5 @@
 8. learnt about basic request overview.
 9. install `npm i --save class-validator class-transformer` | see `https://docs.nestjs.com/techniques/validation`
 10. `nest g s users/services/users` : now we are faking the data. not using databse yet. 
+11. `nest g mi users/middlewares/example`
+12. `nest g pi users/pipes/ValidateCreateUser`

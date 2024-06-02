@@ -31,5 +31,6 @@ content-type: application/json
 
 {
     "username": "Jhon",
-    "email": "jack.jhon@gmail.com"
+    "email": "jack.jhon@gmail.com",
+    "age": "qw23aa"
 }
