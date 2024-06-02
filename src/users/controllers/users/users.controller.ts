@@ -1,5 +1,7 @@
 import {
     Body, Controller, Get,
+    HttpException,
+    HttpStatus,
     Param, ParseBoolPipe, ParseIntPipe, Post, Query,
     UsePipes, ValidationPipe
 } from '@nestjs/common';
@@ -16,8 +18,7 @@ export class UsersController {
     @Post('create')
     @UsePipes(new ValidationPipe())
     createUser(@Body() userData: CreateUserDto) {
-        console.log(userData)
-        return {}
+       return this.userService.createUser(userData)
     }
 
     @Get('health')
@@ -29,7 +30,11 @@ export class UsersController {
 
     @Get(':id')
     getUser(@Param('id', ParseIntPipe) id: number) {
-        return [{ id: id, username: 'Sankar', email: 'sankarbiswas07@gmail.com' }]
+        const user = this.userService.fetchUserById(id)
+        if(!user){
+            throw new HttpException('User not found', HttpStatus.BAD_REQUEST)
+        }
+        return user
     }
 
     @Get()

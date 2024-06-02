@@ -10,7 +10,7 @@ GET {{baseUrl}}/users
 GET {{baseUrl}}/users?sortDesc=true
 
 ### Request 1.2 : GetUser
-GET {{baseUrl}}/users/1
+GET {{baseUrl}}/users/4
 
 
 ### Request 2 : GetPosts
@@ -30,6 +30,6 @@ POST {{baseUrl}}/users/create
 content-type: application/json
 
 {
-    "name": "Jhon",
+    "username": "Jhon",
     "email": "jack.jhon@gmail.com"
 }
